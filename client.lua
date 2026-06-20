@@ -172,7 +172,13 @@ local function openTablet()
     end
     
     SetNuiFocus(true, true)
-    SendNUIMessage(getWeatherData())
+    
+    ESX.TriggerServerCallback('xelbob-tab:getJobApps', function(result)
+        local payload = getWeatherData()
+        payload.apps = result.apps or Config.DefaultSites
+        payload.customApps = result.customApps or {}
+        SendNUIMessage(payload)
+    end)
 end
 
 local function closeTablet()
