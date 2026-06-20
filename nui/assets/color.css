@@ -1,0 +1,69 @@
+.application > #xelyosapp {
+    background: #121619;
+    background: linear-gradient(to right, #f2a922, #121619);
+}
+
+.application > #mailrpapp {
+    background: #37517e;
+    background: linear-gradient(to right, #37517e, #142747);
+}
+
+.application > #secoursapp {
+    background: #ffffff;
+    background: linear-gradient(to right, #ededee, #f50e0e);
+}
+
+.application > #calculatorapp {
+    background: #121619;
+    background: linear-gradient(to right, #f50e0e, #121619);
+}
+
+.application > #copapp {
+    background: #121619;
+    background: linear-gradient(to right, #012997, #20272c);
+}
+
+.application > #topserveurapp {
+    background: #121619;
+    background: linear-gradient(to right, #5d25f7, #e47d09);
+}
+
+.application > #noteapp {
+    background: #121619;
+    background: linear-gradient(to right, #f2a922, #121619);
+}
+
+.fa-cloud, .fa-smog {
+    color: rgb(85, 85, 85);
+    text-shadow: 0 0 10px black;
+}
+
+.fa-cloud-sun {
+    color: rgb(59, 59, 59);
+    text-shadow: 0 0 10px black;
+}
+
+.fa-cloud-rain {
+    color: rgb(73, 70, 255);
+    text-shadow: 0 0 10px black;
+}
+
+.fa-sun {
+    color: rgb(249, 252, 110);
+    text-shadow: 0 0 10px black;
+}
+
+.fa-bolt {
+    color: rgb(8, 8, 8);
+    text-shadow: 0 0 10px black;
+}
+
+.fa-snowflake {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px black;
+}
+
+.fa-cloud-moon {
+    color: rgb(255, 139, 6);
+    text-shadow: 0 0 10px black;
+}
