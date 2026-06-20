@@ -9,6 +9,8 @@ description 'Game tablet'
 ui_page 'nui/index.html'
 
 shared_scripts {
+    '@ox_lib/init.lua',
+    '@es_extended/imports.lua',
     'config.lua',
     'locales.lua',
     'locales/*.lua'
