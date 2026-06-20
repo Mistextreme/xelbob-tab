@@ -205,6 +205,10 @@ try {
 
     const lastPage = localStorage.getItem('tablet_lastPage') || 'main';
 
+    config.DefaultSites.forEach(site => {
+        importPage(site);
+    });
+
     const app = new Vue({
         el: '#tablet',
         data: {
@@ -257,10 +261,6 @@ try {
         }
     });
 
-    config.DefaultSites.forEach(site => {
-        importPage(site);
-    });
-
     window.addEventListener('message', async ({ data }) => {
         switch (data.action) {
             case 'open':
@@ -272,11 +272,13 @@ try {
                 app.Weather.background = data.background;
                 app.Weather.truefalse = data.truefalse;
                 
-                data.apps.forEach(site => {
-                    if (!document.getElementById(site.href)) {
-                        importPage(site);
-                    }
-                });
+                if (data.apps && Array.isArray(data.apps)) {
+                    data.apps.forEach(site => {
+                        if (!document.getElementById(site.href)) {
+                            importPage(site);
+                        }
+                    });
+                }
                 break;
             case 'close':
                 app.opened = false;
@@ -284,7 +286,7 @@ try {
         }
     });
 
-    window.addEventListener('keydown', async ({ key }) => {
+    window.addEventListener('keydown', async ({ key, preventDefault }) => {
         if (key.toLowerCase() === 'escape') {
             return await app.post('close');
         }
