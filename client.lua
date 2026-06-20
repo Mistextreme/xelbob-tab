@@ -144,6 +144,12 @@ end
 
 local function openTablet()
     if isTabletOpen then return end
+    
+    if ESX == nil then
+        log("Cannot open tablet: ESX not initialized")
+        return
+    end
+    
     isTabletOpen = true
     
     local ped = PlayerPedId()
@@ -174,6 +180,13 @@ local function openTablet()
     SetNuiFocus(true, true)
     
     ESX.TriggerServerCallback('xelbob-tab:getJobApps', function(result)
+        if not result then
+            log("Server callback returned nil")
+            SendNUIMessage({action = 'close'})
+            closeTablet()
+            return
+        end
+        
         local payload = getWeatherData()
         payload.apps = result.apps or Config.DefaultSites
         payload.customApps = result.customApps or {}
